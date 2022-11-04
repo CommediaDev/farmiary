@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
+<div th:fragment="left">
+    <div class="list-group">
+        <a href="/myPage" class="list-group-item">마이페이지</a>
+        <a href="/members/infoLogin" class="list-group-item">정보 수정</a>
+        <a href="/admin/item/new" class="list-group-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">상품 등록</a>
+        <a href="/admin/items" class="list-group-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">상품 관리</a>
+        <a href="/admin/requestPermit" class="list-group-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">판매자 등록</a>
+        <a href="/members/request" class="list-group-item" sec:authorize="hasAnyAuthority('ROLE_USER')">판매자 신청</a>
+        <a href="#" class="list-group-item" sec:authorize="hasAnyAuthority('ROLE_CANDIDATE')">판매자 신청 현황</a>
+    </div>
+</div>
+</html>
